@@ -1,17 +1,15 @@
 "use client"
-import { useSession, signIn, signOut } from "next-auth/react"
-import link from "next/link"
 export default function Home() {
 
   return (
-    <div className="flex flex-col min-h-[100vh] px-6 sm:px-[8rem] py-16" style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
-      <section className="w-full max-w-5xl mx-auto pt-10 sm:pt-20 pb-16 text-center">
+    <main className="flex min-h-screen flex-col px-4 py-8 sm:px-6 sm:py-12 lg:px-8" style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+      <section className="w-full max-w-5xl mx-auto pt-8 sm:pt-16 pb-12 sm:pb-16 text-center">
 
         <div className="inline-flex items-center gap-2 bg-[#f5e6c8] border border-[#ddc99a] text-[#7a5c2e] text-xs font-medium px-4 py-1.5 rounded-full mb-8 tracking-wide">
           <span className="w-1.5 h-1.5 rounded-full bg-[#c8922a] animate-pulse inline-block" />
           No platform fees. Ever.
         </div>
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl text-[#2c1a0e] leading-[1.08] tracking-tight mb-6">
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl text-[#2c1a0e] leading-[1.08] tracking-tight mb-6 break-words">
           Let your fans <br />
           <em className="italic text-[#b07d3a]">fuel your work</em>
         </h1>
@@ -37,7 +35,7 @@ export default function Home() {
       <div className="w-full max-w-5xl mx-auto">
         <div className="border-t border-[#e8dcc8]" />
       </div>
-      <section className="w-full max-w-5xl mx-auto py-16 sm:py-24">
+      <section className="w-full max-w-5xl mx-auto py-12 sm:py-20">
         <p className="text-xs text-[#b09a7a] tracking-[0.2em] uppercase text-center mb-12">Why creators choose BrewSupport</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
@@ -57,7 +55,7 @@ export default function Home() {
       <div className="w-full max-w-5xl mx-auto">
         <div className="border-t border-[#e8dcc8]" />
       </div>
-      <section className="w-full max-w-5xl mx-auto py-16 sm:py-24">
+      <section className="w-full max-w-5xl mx-auto py-12 sm:py-20">
         <h2 className="text-3xl sm:text-4xl text-[#2c1a0e] leading-tight text-center mb-6">
           How BrewSupport works
         </h2>
@@ -82,7 +80,7 @@ export default function Home() {
       <div className="w-full max-w-5xl mx-auto">
         <div className="border-t border-[#e8dcc8]" />
       </div>
-      <section className="w-full max-w-5xl mx-auto py-16 sm:py-24 text-center">
+      <section className="w-full max-w-5xl mx-auto py-12 sm:py-20 text-center">
         <h2 className="text-3xl sm:text-4xl text-[#2c1a0e] leading-tight mb-4">
           Ready to <em className="italic text-[#b07d3a]">receive support?</em>
         </h2>
@@ -94,6 +92,6 @@ export default function Home() {
 
 
 
-    </div>
+    </main>
   );
 }

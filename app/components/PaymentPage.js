@@ -123,15 +123,15 @@ export const PaymentPage = ({ username }) => {
             <style>{`@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap');`}</style>
 
             <div
-                className="h-64 bg-cover bg-center"
+                className="h-44 bg-cover bg-center sm:h-56 lg:h-64"
                 style={{
                     backgroundImage: coverPic
                         ? `url(${coverPic})`
                         : "linear-gradient(to bottom right, #e8d5b7, #d4b896, #c9a87a)",
                 }}
             />
-            <div className="max-w-6xl mx-auto px-8 relative">
-                <div className="absolute -top-14 left-1/2 -translate-x-1/2 w-28 h-28 rounded-full border-[5px] border-[#f5ede0] bg-gradient-to-br from-[#b8832a] to-[#7a4f1e] flex items-center justify-center text-[#f5ede0] text-3xl font-bold uppercase shadow-lg overflow-hidden">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 sm:-top-14 sm:w-28 sm:h-28 rounded-full border-[5px] border-[#f5ede0] bg-gradient-to-br from-[#b8832a] to-[#7a4f1e] flex items-center justify-center text-[#f5ede0] text-3xl font-bold uppercase shadow-lg overflow-hidden">
                     {profilePic ? (
                         <img src={profilePic} alt={pageDisplayName} className="w-full h-full object-cover rounded-full" />
                     ) : (
@@ -139,9 +139,9 @@ export const PaymentPage = ({ username }) => {
                     )}
                 </div>
 
-                <div className="pt-20 pb-8 flex flex-col items-center text-center">
+                <div className="pt-16 sm:pt-20 pb-6 sm:pb-8 flex flex-col items-center text-center">
 
-                    <h1 className="text-4xl font-bold tracking-tight capitalize">
+                    <h1 className="max-w-full break-words text-3xl sm:text-4xl font-bold tracking-tight capitalize">
                         {pageUsername}
                     </h1>
                     <p className="text-lg text-[#b8832a] mt-2 font-semibold">
@@ -156,12 +156,12 @@ export const PaymentPage = ({ username }) => {
                 </div>
 
             </div>
-            <div className="max-w-7xl mx-auto px-8 py-4 grid lg:grid-cols-[2fr_1fr] gap-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 grid lg:grid-cols-[2fr_1fr] gap-5 lg:gap-8">
 
 
-                <div className="bg-white border border-[rgba(45,26,14,0.08)] rounded-2xl p-8 shadow-sm h-full">
+                <div className="bg-white border border-[rgba(45,26,14,0.08)] rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm h-full">
 
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
                         <div>
                             <h2 className="text-xl font-bold">Supporters</h2>
                             <p className="text-sm text-[#9a7a5a] mt-1 font-sans">
@@ -190,7 +190,7 @@ export const PaymentPage = ({ username }) => {
                                         {p.name?.charAt(0).toUpperCase()}
                                     </div>
 
-                                    <p className="text-sm text-[#2d1a0e] flex-1 min-w-0">
+                                    <p className="text-sm text-[#2d1a0e] flex-1 min-w-0 break-words">
                                         <span className="font-semibold">{p.name}</span> donated <span className="font-bold text-[#b8832a]">₹{p.amount}</span> with <span className="text-[#8b6f52] italic">{p.message}</span>
                                     </p>
                                 </li>
@@ -201,9 +201,9 @@ export const PaymentPage = ({ username }) => {
                 </div>
 
 
-                <div className="sticky top-24">
+                <div className="lg:sticky lg:top-24 lg:self-start">
 
-                    <div className="bg-white border border-[rgba(45,26,14,0.08)] rounded-2xl p-6 shadow-sm">
+                    <div className="bg-white border border-[rgba(45,26,14,0.08)] rounded-2xl p-4 sm:p-6 shadow-sm">
 
                         <div className="mb-6">
                             <h2 className="text-xl font-bold">Support</h2>
