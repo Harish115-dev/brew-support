@@ -77,32 +77,26 @@ export const PaymentPage = ({ username }) => {
     }, [session, router]);
 
     const isFormValid = paymentform.name.trim() && paymentform.message.trim() && paymentform.amount && Number(paymentform.amount) > 0;
-    const pay = async (amount, orderid) => {
-            let a = await initiate(amount, pageUsername, paymentform)
-            var options = {
-                "key": process.env.NEXT_PUBLIC_KEY_ID, // Enter the Key ID generated from the Dashboard
-                "amount": amount, // Amount is in currency subunits. 
-                "currency": "INR",
-            "name": "brew support", //your business name
-            "description": "Test Transaction",
-            "image": "https://example.com/your_logo",
-            "order_id": a.id, // This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-            "callback_url": "http://localhost:3000/api/razorpay",
-            "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-                "name": paymentform.name, //your customer's name
-                "email": "gaurav.kumar@example.com",
-                "contact": "+919876543210" //Provide the customer's phone number for better conversion rates 
-            },
-            "notes": {
-                "address": "Razorpay Corporate Office"
-            },
-            "theme": {
-                "color": "#3399cc"
-            }
-        };
-        var rzp1 = new window.Razorpay(options);
-        rzp1.open();
+    const pay = async (amount) => {
+    let a = await initiate(amount, pageUsername, paymentform)
+    var options = {
+        "key": currentuser.razorpayid, 
+        "amount": amount * 100,
+        "currency": "INR",
+        "name": "Brew Support",
+        "description": "Support the creator",
+        "order_id": a.id,
+        "callback_url": `${process.env.NEXT_PUBLIC_URL}/api/razorpay`, 
+        "prefill": {
+            "name": paymentform.name,
+        },
+        "theme": {
+            "color": "#b8832a"
+        }
     };
+    var rzp1 = new window.Razorpay(options);
+    rzp1.open();
+};
     return (<>
         <ToastContainer
             position="top-right"
