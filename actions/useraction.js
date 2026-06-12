@@ -80,3 +80,14 @@ export const updateprofile = async (data, oldusernameProp) => {
 
     await User.updateOne({ email: ndata.email }, ndata)
 }
+export const searchusers = async (query) => {
+    await connectDB()
+    if (!query || query.trim().length < 2) return []
+    const users = await User.find({
+        username: { $regex: query.trim(), $options: "i" }
+    })
+        .select("username profilepic name")
+        .limit(8)
+        .lean()
+    return JSON.parse(JSON.stringify(users))
+}
